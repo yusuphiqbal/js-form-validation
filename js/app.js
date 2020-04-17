@@ -1,5 +1,6 @@
 document.getElementById('name').addEventListener('blur', validateName);
 document.getElementById('zipcode').addEventListener('blur', validateZipcode);
+document.getElementById('email').addEventListener('blur', validateEmail);
 
 function validateName() {
   const name = document.getElementById('name');
@@ -20,5 +21,16 @@ function validateZipcode() {
     zipcode.classList.add('is-invalid');
   } else {
     zipcode.classList.remove('is-invalid');
+  }
+}
+
+function validateEmail() {
+  const email = document.getElementById('email');
+  const regularExpression = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+  if (!regularExpression.test(email.value)) {
+    email.classList.add('is-invalid');
+  } else {
+    email.classList.remove('is-invalid');
   }
 }
